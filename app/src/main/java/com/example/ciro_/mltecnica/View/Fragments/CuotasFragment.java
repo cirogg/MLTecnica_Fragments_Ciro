@@ -18,7 +18,6 @@ import com.example.ciro_.mltecnica.Model.Cuotas;
 import com.example.ciro_.mltecnica.Model.PayerCost;
 import com.example.ciro_.mltecnica.R;
 import com.example.ciro_.mltecnica.Util.ResultListener;
-import com.example.ciro_.mltecnica.View.CuotasActivity;
 
 import java.util.List;
 

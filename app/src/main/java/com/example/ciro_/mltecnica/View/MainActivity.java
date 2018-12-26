@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.ciro_.mltecnica.Model.MetodoDePago;
 import com.example.ciro_.mltecnica.R;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
     private String bancoNombre;
     private String cuotas;
 
+    Toolbar toolbar;
+
 
     Button botonNextMonto;
     EditText editTextMonto;
@@ -39,29 +42,8 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
         fragmentManager = getSupportFragmentManager();
         MontoFragment montoFragment = new MontoFragment();
         cargarFragment(montoFragment);
-
-        //botonNextMonto = findViewById(R.id.cmdNextMonto);
-        //editTextMonto = findViewById(R.id.editTextMonto);
-
-        /*botonNextMonto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!(editTextMonto.getText().toString().isEmpty())){
-                    monto = Float.parseFloat(editTextMonto.getText().toString());
-                    nextActivity();
-                }
-            }
-        });*/
-
     }
 
-    private void nextActivity(){
-        Intent intent = new Intent(this,MetodoDePagoActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putFloat("monto",monto);
-        intent.putExtras(bundle);
-        startActivity(intent);
-    }
 
     public void cargarFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
