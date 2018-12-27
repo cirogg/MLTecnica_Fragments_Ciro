@@ -1,9 +1,11 @@
 package com.example.ciro_.mltecnica.View;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,10 +18,11 @@ import com.example.ciro_.mltecnica.Model.MetodoDePago;
 import com.example.ciro_.mltecnica.R;
 import com.example.ciro_.mltecnica.View.Fragments.BancoFragment;
 import com.example.ciro_.mltecnica.View.Fragments.CuotasFragment;
+import com.example.ciro_.mltecnica.View.Fragments.FinalFragment;
 import com.example.ciro_.mltecnica.View.Fragments.MetodoDePagoFragment;
 import com.example.ciro_.mltecnica.View.Fragments.MontoFragment;
 
-public class MainActivity extends AppCompatActivity implements MontoFragment.ComunicacionDataMonto, MetodoDePagoFragment.ComunicacionDataMetodoDePago, BancoFragment.ComunicacionDataBanco, CuotasFragment.ComunicacionDataCuotas {
+public class MainActivity extends AppCompatActivity implements MontoFragment.ComunicacionDataMonto, MetodoDePagoFragment.ComunicacionDataMetodoDePago, BancoFragment.ComunicacionDataBanco, CuotasFragment.ComunicacionDataCuotas,FinalFragment.ComunicacionDataFinal {
 
     private Float monto;
     private String metodoDePagoID;
@@ -83,5 +86,37 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
         for (Fragment fragment1:getSupportFragmentManager().getFragments()) {
             getSupportFragmentManager().beginTransaction().remove(fragment1).commit();
         }
+
+        cargarFragment(fragment);
+    }
+
+    @Override
+    public void comunicarDataFinal() {
+
+        monto = null;
+        metodoDePagoID = null;
+        bancoNombre = null;
+        cuotas = null;
+
+        for (Fragment fragment1:getSupportFragmentManager().getFragments()) {
+            getSupportFragmentManager().beginTransaction().remove(fragment1).commit();
+        }
+        MontoFragment montoFragment = new MontoFragment();
+        cargarFragment(montoFragment);
+
+        alerta();
+    }
+
+    private void alerta(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Look at this dialog!")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //do things
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

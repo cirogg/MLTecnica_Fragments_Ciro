@@ -108,8 +108,9 @@ public class CuotasFragment extends Fragment {
                 bundle.putString("idBanco",bancoSeleccionadoID);
                 bundle.putString("nombreBanco", bancoSeleccionadoNombre);
                 bundle.putString("cuotas",planSeleccionado);
-                CuotasFragment cuotasFragment = CuotasFragment.this;
-                comunicacionDataCuotas.comunicarDataCuotas(planSeleccionado,cuotasFragment);
+                FinalFragment finalFragment = new FinalFragment();
+                finalFragment.setArguments(bundle);
+                comunicacionDataCuotas.comunicarDataCuotas(planSeleccionado,finalFragment);
 
             }
         });
