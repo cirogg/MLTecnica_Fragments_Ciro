@@ -1,6 +1,7 @@
 package com.example.ciro_.mltecnica.View.Fragments;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -41,7 +42,7 @@ public class MetodoDePagoFragment extends Fragment {
     //private ImageView imageViewMetodoDePago;
 
     private MetodoDePagoController metodoDePagoController;
-
+    private Activity activity;
     private List<String>listaParaElSpinner;
 
     ComunicacionDataMetodoDePago comunicacionDataMetodoDePago;
@@ -62,6 +63,8 @@ public class MetodoDePagoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_metodo_de_pago, container, false);
+
+        activity = getActivity();
 
         spinnerMetodo = view.findViewById(R.id.spinnerMetodo);
         botonNext = view.findViewById(R.id.cmdNextMetodo);
@@ -128,7 +131,7 @@ public class MetodoDePagoFragment extends Fragment {
             listaParaElSpinner.add(deMetodosDePago.getName());
         }
 
-        SpinnerAdapter spinnerAdapter = new com.example.ciro_.mltecnica.View.Adapters.SpinnerAdapter(listaParaElSpinner,getActivity(),listaMetodosDePago);
+        SpinnerAdapter spinnerAdapter = new com.example.ciro_.mltecnica.View.Adapters.SpinnerAdapter(listaParaElSpinner,activity,listaMetodosDePago);
         spinnerMetodo.setAdapter(spinnerAdapter);
         botonNext.setEnabled(true);
 

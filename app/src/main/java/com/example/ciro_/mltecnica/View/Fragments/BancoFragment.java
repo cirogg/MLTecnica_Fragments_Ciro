@@ -1,6 +1,7 @@
 package com.example.ciro_.mltecnica.View.Fragments;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -44,6 +45,8 @@ public class BancoFragment extends Fragment {
 
     private List<String>listaParaElSpinner;
 
+    private Activity activity;
+
     ComunicacionDataBanco comunicacionDataBanco;
 
 
@@ -62,6 +65,8 @@ public class BancoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_banco, container, false);
+
+        activity = getActivity();
 
         spinnerBancos = view.findViewById(R.id.spinnerBanco);
         botonNext = view.findViewById(R.id.cmdNextBanco);
@@ -127,7 +132,7 @@ public class BancoFragment extends Fragment {
             listaParaElSpinner.add(deBancos.getName());
         }
 
-        SpinnerAdapterBanco spinnerAdapterBanco = new SpinnerAdapterBanco(listaParaElSpinner,getActivity(),listaDeBancos);
+        SpinnerAdapterBanco spinnerAdapterBanco = new SpinnerAdapterBanco(listaParaElSpinner,activity,listaDeBancos);
         spinnerBancos.setAdapter(spinnerAdapterBanco);
         botonNext.setEnabled(true);
 

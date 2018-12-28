@@ -1,6 +1,7 @@
 package com.example.ciro_.mltecnica.View.Fragments;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -42,6 +43,8 @@ public class CuotasFragment extends Fragment {
     private ArrayAdapter arrayAdapter;
     private Button botonNext;
 
+    private Activity activity;
+
     private CuotasController cuotasController;
 
     ComunicacionDataCuotas comunicacionDataCuotas;
@@ -61,6 +64,8 @@ public class CuotasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cuotas, container, false);
+
+        activity = getActivity();
 
         spinnerCuotas = view.findViewById(R.id.spinnerCuota);
         botonNext = view.findViewById(R.id.cmdNextCuota);
@@ -124,7 +129,7 @@ public class CuotasFragment extends Fragment {
         for (Cuotas listaDeCuota : listaDeCuotas) {
             listaDePayerCost = listaDeCuota.getPayerCosts();
         }
-        arrayAdapter = new ArrayAdapter(getActivity(),android.R.layout.simple_dropdown_item_1line, listaDePayerCost);
+        arrayAdapter = new ArrayAdapter(activity,android.R.layout.simple_dropdown_item_1line, listaDePayerCost);
         spinnerCuotas.setAdapter(arrayAdapter);
         botonNext.setEnabled(true);
     }

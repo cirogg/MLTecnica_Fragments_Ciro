@@ -83,9 +83,9 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
     public void comunicarDataCuotas(String cuotas, Fragment fragment) {
         this.cuotas = cuotas;
 
-        for (Fragment fragment1:getSupportFragmentManager().getFragments()) {
+        /*for (Fragment fragment1:getSupportFragmentManager().getFragments()) {
             getSupportFragmentManager().beginTransaction().remove(fragment1).commit();
-        }
+        }*/
 
         cargarFragment(fragment);
     }
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
     @Override
     public void onBackPressed() {
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.layoutContenedorFragments);
-        if (currentFragment instanceof MontoFragment){
+        if (currentFragment instanceof MontoFragment ){
 
         }else{
 
