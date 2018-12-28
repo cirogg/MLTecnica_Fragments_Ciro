@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
     @Override
     public void comunicarDataMonto(Float monto, Fragment fragment) {
         this.monto = monto;
-        Toast.makeText(this, monto.toString(), Toast.LENGTH_SHORT).show();
+
         cargarFragment(fragment);
 
     }
@@ -67,21 +67,20 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
     @Override
     public void comunicarDataMetodoDePago(String metodoDePagoID, Fragment fragment) {
         this.metodoDePagoID = metodoDePagoID;
-        Toast.makeText(this, metodoDePagoID, Toast.LENGTH_SHORT).show();
+
         cargarFragment(fragment);
     }
 
     @Override
     public void comunicarDataBanco(String bancoNombre, Fragment fragment) {
         this.bancoNombre = bancoNombre;
-        Toast.makeText(this, bancoNombre, Toast.LENGTH_SHORT).show();
+
         cargarFragment(fragment);
     }
 
     @Override
     public void comunicarDataCuotas(String cuotas, Fragment fragment) {
         this.cuotas = cuotas;
-        Toast.makeText(this, cuotas, Toast.LENGTH_SHORT).show();
 
         for (Fragment fragment1:getSupportFragmentManager().getFragments()) {
             getSupportFragmentManager().beginTransaction().remove(fragment1).commit();
@@ -93,10 +92,7 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
     @Override
     public void comunicarDataFinal() {
 
-        monto = null;
-        metodoDePagoID = null;
-        bancoNombre = null;
-        cuotas = null;
+
 
         for (Fragment fragment1:getSupportFragmentManager().getFragments()) {
             getSupportFragmentManager().beginTransaction().remove(fragment1).commit();
@@ -104,12 +100,17 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
         MontoFragment montoFragment = new MontoFragment();
         cargarFragment(montoFragment);
 
-        alerta();
+        //alerta();
+
+        monto = null;
+        metodoDePagoID = null;
+        bancoNombre = null;
+        cuotas = null;
     }
 
     private void alerta(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Look at this dialog!")
+        builder.setMessage("Monto: $" + monto + "\n Metodo de pago: " + metodoDePagoID + "\n Banco: "+ bancoNombre + "\n Cuotas: " + cuotas)
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
