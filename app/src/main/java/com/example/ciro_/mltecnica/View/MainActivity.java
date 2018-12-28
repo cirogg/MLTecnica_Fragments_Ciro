@@ -120,4 +120,14 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
         AlertDialog alert = builder.create();
         alert.show();
     }
+
+    @Override
+    public void onBackPressed() {
+        if (this.fragmentManager.getBackStackEntryCount() > 1) {
+            //getFragmentManager().popBackStack();
+            super.onBackPressed();
+        } else {
+            //super.onBackPressed();
+        }
+    }
 }
