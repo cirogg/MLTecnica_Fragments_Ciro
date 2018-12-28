@@ -67,6 +67,8 @@ public class MetodoDePagoFragment extends Fragment {
         botonNext = view.findViewById(R.id.cmdNextMetodo);
         textViewMonto = view.findViewById(R.id.textViewMontoMetodo);
 
+        botonNext.setEnabled(false);
+
         Bundle bundle = new Bundle();
         bundle = getArguments();
         monto = bundle.getFloat("monto");
@@ -128,6 +130,7 @@ public class MetodoDePagoFragment extends Fragment {
 
         SpinnerAdapter spinnerAdapter = new com.example.ciro_.mltecnica.View.Adapters.SpinnerAdapter(listaParaElSpinner,getActivity(),listaMetodosDePago);
         spinnerMetodo.setAdapter(spinnerAdapter);
+        botonNext.setEnabled(true);
 
     }
 

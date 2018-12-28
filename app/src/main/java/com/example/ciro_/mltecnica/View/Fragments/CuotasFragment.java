@@ -66,6 +66,8 @@ public class CuotasFragment extends Fragment {
         botonNext = view.findViewById(R.id.cmdNextCuota);
         textViewMonto = view.findViewById(R.id.textViewMontoCuota);
 
+        botonNext.setEnabled(false);
+
         Bundle bundle = new Bundle();
         bundle = getArguments();
 
@@ -124,6 +126,7 @@ public class CuotasFragment extends Fragment {
         }
         arrayAdapter = new ArrayAdapter(getActivity(),android.R.layout.simple_dropdown_item_1line, listaDePayerCost);
         spinnerCuotas.setAdapter(arrayAdapter);
+        botonNext.setEnabled(true);
     }
 
     public interface ComunicacionDataCuotas{

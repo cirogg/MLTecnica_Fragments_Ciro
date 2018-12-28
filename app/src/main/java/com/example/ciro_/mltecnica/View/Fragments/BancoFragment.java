@@ -67,6 +67,8 @@ public class BancoFragment extends Fragment {
         botonNext = view.findViewById(R.id.cmdNextBanco);
         textViewMonto = view.findViewById(R.id.textViewMontoBanco);
 
+        botonNext.setEnabled(false);
+
         Bundle bundle = new Bundle();
         bundle = getArguments();
         monto = bundle.getFloat("monto");
@@ -127,6 +129,7 @@ public class BancoFragment extends Fragment {
 
         SpinnerAdapterBanco spinnerAdapterBanco = new SpinnerAdapterBanco(listaParaElSpinner,getActivity(),listaDeBancos);
         spinnerBancos.setAdapter(spinnerAdapterBanco);
+        botonNext.setEnabled(true);
 
     }
 
