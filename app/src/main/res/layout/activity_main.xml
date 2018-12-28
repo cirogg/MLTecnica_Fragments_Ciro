@@ -6,19 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".View.MainActivity"
     android:orientation="vertical"
-    android:gravity="center"
+    android:background="#dfdfdf"
     >
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    </android.support.v7.widget.Toolbar>
 <LinearLayout
+    android:layout_margin="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:layout_gravity="center"
+    android:background="#dfdfdf"
     android:id="@+id/layoutContenedorFragments">
 
 
