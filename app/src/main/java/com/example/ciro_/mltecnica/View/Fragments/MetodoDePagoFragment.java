@@ -132,6 +132,7 @@ public class MetodoDePagoFragment extends Fragment {
         spinnerMetodo.setAdapter(spinnerAdapter);
         botonNext.setEnabled(true);
 
+
     }
 
     public interface ComunicacionDataMetodoDePago{

@@ -1,5 +1,6 @@
 package com.example.ciro_.mltecnica.View;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
@@ -92,20 +93,28 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
     @Override
     public void comunicarDataFinal() {
 
+        /*Intent intent = getIntent();
+        finish();
+        startActivity(intent);*/
+
+        this.recreate();
+        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
 
 
-        for (Fragment fragment1:getSupportFragmentManager().getFragments()) {
+        /*for (Fragment fragment1:getSupportFragmentManager().getFragments()) {
             getSupportFragmentManager().beginTransaction().remove(fragment1).commit();
         }
+
         MontoFragment montoFragment = new MontoFragment();
         cargarFragment(montoFragment);
+
 
         //alerta();
 
         monto = null;
         metodoDePagoID = null;
         bancoNombre = null;
-        cuotas = null;
+        cuotas = null;*/
     }
 
     private void alerta(){
@@ -121,13 +130,16 @@ public class MainActivity extends AppCompatActivity implements MontoFragment.Com
         alert.show();
     }
 
+
+
     @Override
     public void onBackPressed() {
-        if (this.fragmentManager.getBackStackEntryCount() > 1) {
-            //getFragmentManager().popBackStack();
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.layoutContenedorFragments);
+        if (currentFragment instanceof MontoFragment){
+
+        }else{
+
             super.onBackPressed();
-        } else {
-            //super.onBackPressed();
         }
     }
 }
