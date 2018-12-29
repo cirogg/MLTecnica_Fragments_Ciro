@@ -17,15 +17,31 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_gravity="center">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monto: "
+        android:textSize="30dp"/>
+        <TextView
         android:id="@+id/textViewMontoBanco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="MONTO"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textAlignment="center"/>
+    </LinearLayout>
 
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar Banco"/>
     <Spinner
         android:id="@+id/spinnerBanco"
         android:layout_marginRight="50dp"

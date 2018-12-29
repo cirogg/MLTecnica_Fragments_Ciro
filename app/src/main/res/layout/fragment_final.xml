@@ -101,7 +101,7 @@
         android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hacer un nuevo pagp"
+        android:text="  Hacer un nuevo pago  "
         android:background="@drawable/button_shape"
         android:backgroundTint= "#0e82ff"
         />
